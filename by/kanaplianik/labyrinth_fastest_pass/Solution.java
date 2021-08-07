@@ -81,11 +81,23 @@ public class Solution {
 	}
 
 	public static void main(String[] args) {
-		readFromFile("C:\\INPUT.TXT");
+		readFromFile(readFromConsole());
 		parseText();
 		System.out.println(findPrince());
 	}
 
+	private static String readFromConsole() {
+		System.out.println("Please type full file name (for example \"C:\\INPUT.TXT\"): ");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String fileName = null;
+		try {
+			fileName = reader.readLine();
+		} catch (IOException e) {
+			System.out.println();
+		}
+		return fileName;
+	}
+	
 	private static void readFromFile(String fileName) {
 		BufferedReader br;
 		try {
